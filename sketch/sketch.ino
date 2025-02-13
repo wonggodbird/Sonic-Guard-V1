@@ -33,6 +33,7 @@
 // กำหนดพินสำหรับการใช้งานเสียง
 const int buzzerPin = 9;  // พินสำหรับเสียง sensor
 unsigned int distance;  // ตัวแปรสำหรับเก็บค่าระยะ sensor
+int LED = 3;  //LED status
 
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // Sensor setup
 
@@ -40,6 +41,7 @@ void setup()
 {
   Serial.begin(9600); 
   pinMode(buzzerPin, OUTPUT); // กำหนดพิน output สำหรับเสียง sensor
+  pinMode(LED, OUTPUT);
 }
 
 void loop() 
@@ -55,12 +57,14 @@ void loop()
   // การทำงานของ sensor
   if (distance > 20 && distance <= 100  ) // ระยะ 20 - 100 cm
   {
+    digitalWrite(LED, LOW);  // LED ON
     playTone(buzzerPin, NOTE_E4, distance); //ok 
     Serial.println("playTone"); 
   } 
   else 
   {
     noToneManual(buzzerPin); // หยุดเสียง sensor
+    digitalWrite(LED, HIGH);  //  LED OFF
   }
 }
 
