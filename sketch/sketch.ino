@@ -75,7 +75,7 @@ void loop()
   Serial.println(" cm");
 
   // การทำงานของ sensor 1
-  if (distance1 > 20 && distance1 <= 100  ) // ระยะ 20 - 100 cm
+  if (distance1 > 100 && distance1 <= 400  ) // ระยะ 20 - 100 cm
   {
     digitalWrite(LED_1, LOW);  // LED ON
     playTone1(buzzerPin1, NOTE_E4, distance1); //ok 
@@ -88,7 +88,7 @@ void loop()
   }
 
   // การทำงานของ sensor 2
-  if (distance2 > 20 && distance2 <= 100) // ระยะ 20 - 100 cm
+  if (distance2 > 100 && distance2 <= 400) // ระยะ 20 - 100 cm
   {
     digitalWrite(LED_2, LOW);  // LED ON
     playTone2(buzzerPin2, NOTE_C5, distance2); // เล่นเสียง C4 จาก    //ดัง  11  ok
